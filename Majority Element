@@ -1,0 +1,33 @@
+#include <vector>
+
+class Solution {
+public:
+    int majorityElement(std::vector<int>& nums) {
+        // int candidate = nums[0];
+        // int count = 1;
+
+        // for (int i = 1; i < nums.size(); ++i) {
+        //     if (nums[i] == candidate) {
+        //         count++;
+        //     } else {
+        //         count--;
+        //     }
+            
+        //     if (count == 0) {
+        //         candidate = nums[i];
+        //         count = 1;
+        //     }
+        // }
+
+        // return candidate;
+        int n=nums.size();
+        unordered_map<int,int>mp;
+        for(int nu:nums){
+            mp[nu]++;
+            if(mp[nu]>n/2){
+                return nu;
+            }
+        }
+        return -1;
+    }
+};
